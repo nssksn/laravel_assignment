@@ -35,7 +35,7 @@
                                 
                                 <div class="p-2 w-full">
                                 <div class="relative">
-                                    <label for="tweet" class="leading-7 text-sm text-gray-600">Message</label>
+                                    <label for="tweet" class="leading-7 text-sm text-gray-600">メッセージ</label>
                                     <textarea id="tweet" name="tweet" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
                                 </div>
                                 </div>
@@ -63,7 +63,7 @@
                             </svg>
                         </div>
                         <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
-                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2">{{ $tweet->user->first_name}} {{ $tweet->user->last_name}}</h2>
+                            <h2 class="text-gray-900 text-lg title-font font-medium mb-2">{{ data_get($tweet->user, 'first_name' ) }} {{ data_get($tweet->user, 'last_name') }}</h2>
                             <p class="leading-relaxed text-base">{{ $tweet->tweet }}</p>
                             <a href="{{ route('tweets.show', ['tweet' => $tweet->id]) }}" class="mt-3 text-indigo-500 inline-flex items-center">返信する
                             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">

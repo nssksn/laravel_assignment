@@ -6,9 +6,13 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TweetController;
 use App\Http\Controllers\ReplyController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//login済→ダッシュボード、loginしていない→ログイン画面
+//Route::get('/', function () {
+    //return view('welcome');
+    
+//});
+Route::get('/', [UserController::class, 'login']);
+
 
 Route::get('/users', [UserController::class, 'index']);
 

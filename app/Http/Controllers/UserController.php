@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 
@@ -22,5 +23,17 @@ class UserController extends Controller
 
         return view('users.edit', compact('user'));
 
+    }
+
+    public function login()
+    {
+        if(Auth::check())
+        {
+            return view('dashboard');
+        }
+        else
+        {
+            return view('auth.login');
+        }
     }
 }

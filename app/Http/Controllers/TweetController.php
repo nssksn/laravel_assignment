@@ -19,7 +19,6 @@ class TweetController extends Controller
     {
         $tweets = Tweet::with('user')->get();
 
-        //dd($tweets);
 
         // 現在認証しているユーザーを取得
         $user = Auth::user();
