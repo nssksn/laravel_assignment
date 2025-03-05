@@ -19,6 +19,8 @@ class TweetController extends Controller
     {
         $tweets = Tweet::with('user')->get();
 
+        $tweets = $tweets->reverse();
+
 
         // 現在認証しているユーザーを取得
         $user = Auth::user();
@@ -65,6 +67,8 @@ class TweetController extends Controller
 
         //そのツイート対する全てのリプライを得る
         $replies = Reply::where('tweet_id', $id)->with('user')->get();
+
+        $replies = $replies->reverse();
 
         return view('tweets.show', compact('tweet', 'tweet_user', 'replies'));
     }
